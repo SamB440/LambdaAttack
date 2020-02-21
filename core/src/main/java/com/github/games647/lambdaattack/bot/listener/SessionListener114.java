@@ -1,7 +1,7 @@
 package com.github.games647.lambdaattack.bot.listener;
 
 import com.github.games647.lambdaattack.bot.Bot;
-import com.github.games647.lambdaattack.bot.EntitiyLocation;
+import com.github.games647.lambdaattack.bot.EntityLocation;
 import com.github.steveice10.packetlib.event.session.PacketReceivedEvent;
 import com.github.steveice10.protocol.v1_14.data.message.Message;
 import com.github.steveice10.protocol.v1_14.packet.ingame.server.ServerChatPacket;
@@ -31,7 +31,7 @@ public class SessionListener114 extends SessionListener {
             double posZ = posPacket.getZ();
             float pitch = posPacket.getPitch();
             float yaw = posPacket.getYaw();
-            EntitiyLocation location = new EntitiyLocation(posX, posY, posZ, pitch, yaw);
+            EntityLocation location = new EntityLocation(posX, posY, posZ, pitch, yaw);
             owner.setLocation(location);
         } else if (receiveEvent.getPacket() instanceof ServerPlayerHealthPacket) {
             ServerPlayerHealthPacket healthPacket = receiveEvent.getPacket();
