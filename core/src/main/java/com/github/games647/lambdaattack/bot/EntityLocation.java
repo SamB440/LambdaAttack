@@ -2,7 +2,7 @@ package com.github.games647.lambdaattack.bot;
 
 import java.util.Objects;
 
-public class EntitiyLocation {
+public class EntityLocation {
 
     private final double posX;
     private final double posY;
@@ -11,7 +11,7 @@ public class EntitiyLocation {
     private final float pitch;
     private final float yaw;
 
-    public EntitiyLocation(double posX, double posY, double posZ, float pitch, float yaw) {
+    public EntityLocation(double posX, double posY, double posZ, float pitch, float yaw) {
         this.posX = posX;
         this.posY = posY;
         this.posZ = posZ;
@@ -50,11 +50,11 @@ public class EntitiyLocation {
             return true;
         }
 
-        if (!(other instanceof EntitiyLocation)) {
+        if (!(other instanceof EntityLocation)) {
             return false;
         }
 
-        EntitiyLocation otherLoc = (EntitiyLocation) other;
+        EntityLocation otherLoc = (EntityLocation) other;
         return Objects.equals(posX, otherLoc.posX)
                 && Objects.equals(posY, otherLoc.posY)
                 && Objects.equals(posZ, otherLoc.posZ)

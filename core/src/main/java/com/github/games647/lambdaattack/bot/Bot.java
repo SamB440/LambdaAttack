@@ -6,6 +6,7 @@ import com.github.games647.lambdaattack.UniversalProtocol;
 import com.github.games647.lambdaattack.bot.listener.SessionListener111;
 import com.github.games647.lambdaattack.bot.listener.SessionListener112;
 import com.github.games647.lambdaattack.bot.listener.SessionListener114;
+import com.github.games647.lambdaattack.bot.listener.SessionListener115;
 import com.github.steveice10.mc.auth.data.GameProfile;
 import com.github.steveice10.mc.auth.exception.request.RequestException;
 import com.github.steveice10.packetlib.Client;
@@ -24,7 +25,7 @@ public class Bot {
     private final UniversalProtocol account;
 
     private Session session;
-    private EntitiyLocation location;
+    private EntityLocation location;
     private float health = -1;
     private float food = -1;
 
@@ -54,6 +55,9 @@ public class Bot {
             case VERSION_1_14:
                 client.getSession().addListener(new SessionListener114(this));
                 break;
+            case VERSION_1_15:
+                client.getSession().addListener(new SessionListener115(this));
+                break;
             default:
                 throw new IllegalStateException("Unknown session listener");
         }
@@ -75,11 +79,11 @@ public class Bot {
         return session;
     }
 
-    public EntitiyLocation getLocation() {
+    public EntityLocation getLocation() {
         return location;
     }
 
-    public void setLocation(EntitiyLocation location) {
+    public void setLocation(EntityLocation location) {
         this.location = location;
     }
 
